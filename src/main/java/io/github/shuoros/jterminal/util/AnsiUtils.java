@@ -5,36 +5,47 @@ import java.util.Map;
 import io.github.shuoros.jterminal.ansi.Attribute;
 import io.github.shuoros.jterminal.ansi.Color;
 
+/**
+ * This class contains utilities and functionalities to generate
+ * <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ANSI escape
+ * sequences</a> by the given {@link io.github.shuoros.jterminal.ansi.Color}s
+ * and {@link io.github.shuoros.jterminal.ansi.Attribute}s from user.
+ * 
+ * @author Soroush Shemshadi
+ * @version 0.1.0
+ * @since 0.1.0
+ *
+ */
 public class AnsiUtils {
 
 	/**
 	 * Escape character used to start an ANSI code.
 	 */
-
 	private static final String ESCAPE = "\u001B";
 	/**
-	 * Every Ansi escape code begins with this PREFIX.
+	 * Every ANSI escape code begins with this PREFIX.
 	 */
-
 	private static final String PREFIX = ESCAPE + "[";
 	/**
 	 * Two options must be separated by this SEPARATOR.
 	 */
-
 	private static final String SEPARATOR = ";";
 	/**
-	 * Every Ansi escape code must end with this POSTFIX.
+	 * Every ANSI escape code must end with this POSTFIX.
 	 */
 	private static final String POSTFIX = "m";
-
 	/**
-	 * Shorthand for the Ansi code that resets to the terminal's default format.
+	 * Shorthand for the ANSI code that resets to the terminal's default format.
 	 */
 	public static final String RESET = PREFIX + Attribute.CLEAR + POSTFIX;
 
 	/**
-	 * @param attributes ANSI attributes to format a text.
-	 * @return The ANSI code that describes all those attributes together.
+	 * Generates ANSI escape sequences from options given by you.
+	 * 
+	 * @param options : A {@link java.util.Map} of
+	 *                {@link io.github.shuoros.jterminal.ansi.Color}s and key of
+	 *                that color (foreground or background).
+	 * @return Generated ANSI escape sequences based on your options.
 	 */
 	public static String generateCode(Map<String, Color> options) {
 		StringBuilder builder = new StringBuilder();
