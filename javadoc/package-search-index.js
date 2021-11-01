@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"io.github.shuoros.jterminal"},{"l":"io.github.shuoros.jterminal.ansi"},{"l":"io.github.shuoros.jterminal.util"}]
