@@ -11,6 +11,22 @@ public class JTerminal {
 	private static Color defaultForeground = Color.WHITE;
 	private static Color defaultBackground = Color.BLACK;
 
+	public static Color getDefaultForeground() {
+		return defaultForeground;
+	}
+
+	public static void setDefaultForeground(Color defaultForeground) {
+		JTerminal.defaultForeground = defaultForeground;
+	}
+
+	public static Color getDefaultBackground() {
+		return defaultBackground;
+	}
+
+	public static void setDefaultBackground(Color defaultBackground) {
+		JTerminal.defaultBackground = defaultBackground;
+	}
+
 	public static void print(String string) {
 		System.out.print(//
 				AnsiUtils.generateCode(//
