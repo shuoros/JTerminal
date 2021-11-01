@@ -78,7 +78,7 @@ public class JTerminal {
 				AnsiUtils.generateCode(//
 						Map.of("foreground", defaultForeground, "background", defaultBackground)));
 		System.out.print(string);
-		System.out.println(AnsiUtils.RESET);
+		System.out.print(AnsiUtils.RESET);
 	}
 
 	/**
@@ -95,7 +95,7 @@ public class JTerminal {
 				AnsiUtils.generateCode(//
 						Map.of("foreground", foreground, "background", defaultBackground)));
 		System.out.print(string);
-		System.out.println(AnsiUtils.RESET);
+		System.out.print(AnsiUtils.RESET);
 	}
 
 	/**
@@ -116,7 +116,7 @@ public class JTerminal {
 				AnsiUtils.generateCode(//
 						Map.of("foreground", foreground, "background", background)));
 		System.out.print(string);
-		System.out.println(AnsiUtils.RESET);
+		System.out.print(AnsiUtils.RESET);
 	}
 
 	/**
