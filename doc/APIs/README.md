@@ -1,3 +1,4 @@
 # Documentation > APIs
 
-- [print and println](https://github.com/shuoros/JTerminal/blob/main/doc/apis/print.md)
+- [defaults](https://github.com/shuoros/JTerminal/blob/main/doc/apis/00defaults.md)
+- [print and println](https://github.com/shuoros/JTerminal/blob/main/doc/apis/01print.md)
