@@ -4,14 +4,43 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.shuoros</groupId>
 	<artifactId>JTerminal</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>JTerminal</name>
-	<description>A library for printing custom outputs in terminal in Java</description>
+	<version>0.1.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>${project.groupId}:${project.artifactId}</name>
+	<description>A library for printing custom outputs in terminal.</description>
+	<url>https://github.com/shuoros/JTerminal</url>
+	<inceptionYear>2021</inceptionYear>
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>https://opensource.org/licenses/MIT</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Soroush Shemshadi</name>
+			<email>shuoros@yahoo.com</email>
+			<url>https://shuoros.github.io</url>
+		</developer>
+	</developers>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.1.0</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
