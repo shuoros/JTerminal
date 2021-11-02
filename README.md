@@ -1,10 +1,18 @@
-# JTerminal
+![rsz_j4](https://user-images.githubusercontent.com/45015114/139809463-417377ca-2eef-4cec-9689-bd841b0ce5db.png)
+#
 **JTerminal** is an easy to use library for printing custom outouts on terminal.
 
 ## Hello Terminal
-To use Jterminal you just need to make a static call to your desired API. For example:
+To use JTerminal you just need to make a static call to your desired API.
+
+For example:
+
+![Screenshot from یب11-01 22-18-31](https://user-images.githubusercontent.com/45015114/139813499-0b40be90-62d6-4f02-b771-4d47f0d66c16.png)
+
+The above image was the result of running this piece of code:
 
 ```java
+import io.github.shuoros.jterminal.JTerminal;
 import io.github.shuoros.jterminal.ansi.Color;
 
 public class Main {
@@ -13,7 +21,7 @@ public class Main {
 		JTerminal.print("Hello", Color.YELLOW);
 		JTerminal.println("Terminal", Color.GREEN);
 		JTerminal.print("i'm JTerminal", Color.ORANGE);
-		JTerminal.print("!", Color.RED);
+		JTerminal.println("!", Color.RED);
 	}
 
 }
