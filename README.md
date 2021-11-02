@@ -42,4 +42,4 @@ To see the changes in different versions of JTerminal, you can read the [release
 If you encounter a bug or vulnerability, please read the [issue policy](https://github.com/shuoros/JTerminal/blob/main/ISSUES.md).
 
 ## Documentation
-To learn how to work with JTerminal, please take a look at the [/doc](https://github.com/shuoros/JTerminal/blob/main/doc) folder.
+To learn how to work with JTerminal, please take a look at the [/doc](https://github.com/shuoros/JTerminal/tree/main/doc) folder.
