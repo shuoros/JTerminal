@@ -2,5 +2,5 @@
 
 ## Table of content
 
-- [APIs](https://github.com/shuoros/JTerminal/blob/main/doc/apis)
-- [Colors](https://github.com/shuoros/JTerminal/blob/main/doc/colors)
+- [APIs](https://github.com/shuoros/JTerminal/tree/main/doc/APIs)
+- [Colors](https://github.com/shuoros/JTerminal/tree/main/doc/Colors)
