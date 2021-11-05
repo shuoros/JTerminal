@@ -1054,6 +1054,12 @@ public enum Color {
 		this.code = code;
 		return this;
 	}
+	
+
+	public Color rgb(String r, String g, String b) {
+		this.code = r + ";" + g + ";" + b;
+		return this;
+	}
 
 	public Boolean getxTerm() {
 		return xTerm;
