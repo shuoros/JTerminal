@@ -1041,9 +1041,32 @@ public enum Color {
 	GREY_1("255");
 
 	private String code;
+	private Boolean xTerm;
+	private Boolean rgb;
 
 	Color(String code) {
 		this.code = code;
+		this.xTerm = true;
+		this.rgb = false;
+	}
+
+	public Color xTerm(String code) {
+		this.code = code;
+		return this;
+	}
+	
+
+	public Color rgb(String r, String g, String b) {
+		this.code = r + ";" + g + ";" + b;
+		return this;
+	}
+
+	public Boolean getxTerm() {
+		return xTerm;
+	}
+
+	public Boolean getRgb() {
+		return rgb;
 	}
 
 	/**
