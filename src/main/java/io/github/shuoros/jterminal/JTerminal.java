@@ -1,10 +1,12 @@
 package io.github.shuoros.jterminal;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 import io.github.shuoros.jterminal.ansi.Color;
 import io.github.shuoros.jterminal.util.AnsiUtils;
+import io.github.shuoros.jterminal.util.TextEntity;
 
 /**
  * A library for printing custom outputs in terminal by Java.
@@ -20,12 +22,12 @@ public class JTerminal {
 	/**
 	 * Default text foreground color.
 	 */
-	private static Color defaultForeground = Color.WHITE;
+	private static Color defaultForeground = Color.DEFAULT;
 
 	/**
 	 * Default text background color.
 	 */
-	private static Color defaultBackground = Color.BLACK;
+	private static Color defaultBackground = Color.DEFAULT;
 
 	/**
 	 * Getter of default foreground.
@@ -76,8 +78,14 @@ public class JTerminal {
 	public static void print(String string) {
 		System.out.print(//
 				AnsiUtils.generateCode(//
-						Map.of("foreground", defaultForeground, "background", defaultBackground)));
-		System.out.print(string);
+						string, List.of(new TextEntity())));
+		System.out.print(AnsiUtils.RESET);
+	}
+
+	public static void print(String string, List<TextEntity> textEnitities) {
+		System.out.print(//
+				AnsiUtils.generateCode(//
+						string, textEnitities));
 		System.out.print(AnsiUtils.RESET);
 	}
 
@@ -93,8 +101,7 @@ public class JTerminal {
 	public static void print(String string, Color foreground) {
 		System.out.print(//
 				AnsiUtils.generateCode(//
-						Map.of("foreground", foreground, "background", defaultBackground)));
-		System.out.print(string);
+						string, List.of(new TextEntity(foreground))));
 		System.out.print(AnsiUtils.RESET);
 	}
 
@@ -114,8 +121,7 @@ public class JTerminal {
 	public static void print(String string, Color foreground, Color background) {
 		System.out.print(//
 				AnsiUtils.generateCode(//
-						Map.of("foreground", foreground, "background", background)));
-		System.out.print(string);
+						string, List.of(new TextEntity(foreground, background))));
 		System.out.print(AnsiUtils.RESET);
 	}
 
@@ -128,8 +134,14 @@ public class JTerminal {
 	public static void println(String string) {
 		System.out.print(//
 				AnsiUtils.generateCode(//
-						Map.of("foreground", defaultForeground, "background", defaultBackground)));
-		System.out.print(string);
+						string, List.of(new TextEntity())));
+		System.out.println(AnsiUtils.RESET);
+	}
+
+	public static void println(String string, List<TextEntity> textEnitities) {
+		System.out.print(//
+				AnsiUtils.generateCode(//
+						string, textEnitities));
 		System.out.println(AnsiUtils.RESET);
 	}
 
@@ -145,8 +157,7 @@ public class JTerminal {
 	public static void println(String string, Color foreground) {
 		System.out.print(//
 				AnsiUtils.generateCode(//
-						Map.of("foreground", foreground, "background", defaultBackground)));
-		System.out.print(string);
+						string, List.of(new TextEntity(foreground))));
 		System.out.println(AnsiUtils.RESET);
 	}
 
@@ -165,10 +176,43 @@ public class JTerminal {
 	 */
 	public static void println(String string, Color foreground, Color background) {
 		System.out.print(//
-				AnsiUtils.generateCode(Map.of(//
-						"foreground", foreground, "background", background)));
-		System.out.print(string);
+				AnsiUtils.generateCode(//
+						string, List.of(new TextEntity(foreground, background))));
 		System.out.println(AnsiUtils.RESET);
+	}
+
+	/**
+	 * Clear the screen. If {@code OS} was windows then the {@code cls} command will
+	 * be execute and else {@code "\033\143"} will be printed in terminal to clear
+	 * the screen.
+	 */
+	public static void clear() {
+		System.out.print("\033\143");
+	}
+
+	/**
+	 * Call the {@code clear()} after sleep for {@code sleep} milliseconds.
+	 * 
+	 * @param sleep Sleep time in milliseconds.
+	 */
+	public static void clear(long sleep) {
+		try {
+			Thread.sleep(sleep);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		clear();
+	}
+
+	public static void delete() {
+		int line = 1;
+		System.out.print(String.format("\033[%dA", line)); // Move up
+		System.out.print("\033[2K"); // Erase line content
+	}
+
+	public static void delete(int line) {
+		System.out.print(String.format("\033[%dA", line)); // Move up
+		System.out.print("\033[2K"); // Erase line content
 	}
 
 }
