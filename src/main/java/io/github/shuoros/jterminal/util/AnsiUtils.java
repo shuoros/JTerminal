@@ -1,9 +1,10 @@
 package io.github.shuoros.jterminal.util;
 
-import java.util.Map;
+import java.util.List;
 
 import io.github.shuoros.jterminal.ansi.Attribute;
 import io.github.shuoros.jterminal.ansi.Color;
+import io.github.shuoros.jterminal.exception.EntitiesRangeOverlapException;
 
 /**
  * This class contains utilities and functionalities to generate
@@ -47,27 +48,47 @@ public class AnsiUtils {
 	 *                that color (foreground or background).
 	 * @return Generated ANSI escape sequences based on your options.
 	 */
-	public static String generateCode(Map<String, Color> options) {
+	public static String generateCode(String text, List<TextEntity> textEnitities) {
 		StringBuilder builder = new StringBuilder();
 
-		builder.append(PREFIX);
-		for (String option : options.keySet()) {
-			String code = "";
-			if ("foreground".equals(option)) {
-				code = Attribute.FOREGROUND + options.get(option).toString();
-			} else if ("background".equals(option)) {
-				code = Attribute.BACKGROUND + options.get(option).toString();
+		for (TextEntity entity : textEnitities) {
+			detectOverlap(textEnitities, entity);
+
+			builder.append(PREFIX);
+
+			if (!entity.getForeground().equals(Color.DEFAULT)) {
+				builder.append(Attribute.FOREGROUND + entity.getForeground().toString());
+				builder.append(SEPARATOR);
 			}
-			if ("".equals(code)) {
-				continue;
+			if (!entity.getBackground().equals(Color.DEFAULT)) {
+				builder.append(Attribute.BACKGROUND + entity.getBackground().toString());
+				builder.append(SEPARATOR);
 			}
-			builder.append(code);
-			builder.append(SEPARATOR);
+
+			builder.append(POSTFIX);
+
+			if (entity.getBegin() == Integer.MIN_VALUE && entity.getEnd() == Integer.MAX_VALUE) {
+				builder.append(text);
+			} else {
+				builder.append(text.substring(entity.getBegin(), entity.getEnd()));
+			}
+
+			builder.append(RESET);
 		}
-		builder.append(POSTFIX);
 
 		// because code must not end with SEPARATOR
-		return builder.toString().replace(SEPARATOR + POSTFIX, POSTFIX);
+		return builder.toString().replaceAll(SEPARATOR + POSTFIX, POSTFIX);
+	}
+
+	private static void detectOverlap(List<TextEntity> textEnitities, TextEntity textEntity) {
+		for (TextEntity entity : textEnitities) {
+			if (entity.equals(textEntity)) {
+				continue;
+			} else if (entity.getBegin() < textEntity.getEnd() && entity.getEnd() > textEntity.getBegin()) {
+				throw new EntitiesRangeOverlapException("[" + textEntity.getBegin() + ", " + textEntity.getEnd()
+						+ "] whit [" + entity.getBegin() + ", " + entity.getEnd() + "]");
+			}
+		}
 	}
 
 }
