@@ -1,5 +1,7 @@
 package io.github.shuoros.jterminal.ansi;
 
+import io.github.shuoros.jterminal.exception.IncorrectXTermException;
+
 /**
  * Enumeration of ANSI 8-bit colors.
  * 
@@ -9,12 +11,16 @@ package io.github.shuoros.jterminal.ansi;
  * @see <a href=
  *      "https://stackoverflow.com/questions/4842424/list-of-ansi-color-escape-sequences/33206814#33206814">StackOverflow,
  *      for a list of codes with examples</a>
- * @version 0.1.1
+ * @version 0.2.1
  * @since 0.1.0
  *
  */
 public enum Color {
 
+	/**
+	 * {@code Default color of your terminal}
+	 */
+	DEFAULT(""),
 	/**
 	 * {@code Black - 	Xterm:0 - HEX:#000000 - RGB:0,0,0}
 	 */
@@ -1041,32 +1047,21 @@ public enum Color {
 	GREY_1("255");
 
 	private String code;
-	private Boolean xTerm;
-	private Boolean rgb;
 
 	Color(String code) {
 		this.code = code;
-		this.xTerm = true;
-		this.rgb = false;
 	}
 
-	public Color xTerm(String code) {
-		this.code = code;
-		return this;
-	}
-	
-
-	public Color rgb(String r, String g, String b) {
-		this.code = r + ";" + g + ";" + b;
-		return this;
-	}
-
-	public Boolean getxTerm() {
-		return xTerm;
-	}
-
-	public Boolean getRgb() {
-		return rgb;
+	public static Color xTerm(int code) {
+		if (code > 255 || code < 0) {
+			throw new IncorrectXTermException("Your code : " + code);
+		}
+		for (Color color : Color.values()) {
+			if (color.code.equalsIgnoreCase(String.valueOf(code))) {
+				return color;
+			}
+		}
+		return null;
 	}
 
 	/**
