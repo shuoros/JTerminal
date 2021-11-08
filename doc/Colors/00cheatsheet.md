@@ -264,3 +264,5 @@ For each color you can use its "Enum Name" like `Color.*`
             <tr><td style="background:#eeeeee;"><img src="https://via.placeholder.com/60x30/eeeeee/eeeeee/"></td><td>255</td><td>Grey93</td><td>#eeeeee</td><td>rgb(238,238,238)</td><td>hsl(0,0%,93%)</td></tr>
           </tbody>
         </table>
+
+Table credit by @jonasjacek 
