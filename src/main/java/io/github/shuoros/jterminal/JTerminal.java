@@ -222,7 +222,7 @@ public class JTerminal {
 	}
 
 	/**
-	 * Delete last givven {@code line}s befour cursor.
+	 * Delete last given {@code line}s befour cursor.
 	 * 
 	 * @param line : Lines number you want to delete.
 	 */

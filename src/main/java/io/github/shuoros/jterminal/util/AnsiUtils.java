@@ -41,11 +41,12 @@ public class AnsiUtils {
 	public static final String RESET = PREFIX + Attribute.CLEAR + POSTFIX;
 
 	/**
-	 * Generates ANSI escape sequences from options given by you.
+	 * Generates ANSI escape sequences from given text and list of entities.
 	 * 
-	 * @param options : A {@link java.util.Map} of
-	 *                {@link io.github.shuoros.jterminal.ansi.Color}s and key of
-	 *                that color (foreground or background).
+	 * @param text          : Your given text.
+	 * @param textEnitities : A {@link java.util.List} of
+	 *                      {@link io.github.shuoros.jterminal.util.TextEntity}s
+	 *                      which contains text attributes and the range of effect.
 	 * @return Generated ANSI escape sequences based on your options.
 	 */
 	public static String generateCode(String text, List<TextEntity> textEnitities) {

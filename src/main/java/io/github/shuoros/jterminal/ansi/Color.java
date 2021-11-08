@@ -1053,7 +1053,7 @@ public enum Color {
 	}
 
 	/**
-	 * Creates a color based on your givven XTerm code.
+	 * Creates a color based on your given XTerm code.
 	 * 
 	 * @param code : The Xterm code of the color that you want.
 	 * @return The color reperesented by code you gave. If you enter an out range
