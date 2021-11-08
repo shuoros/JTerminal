@@ -1,8 +1,6 @@
 package io.github.shuoros.jterminal;
 
-import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 import io.github.shuoros.jterminal.ansi.Color;
 import io.github.shuoros.jterminal.util.AnsiUtils;
@@ -13,7 +11,7 @@ import io.github.shuoros.jterminal.util.TextEntity;
  * 
  * @author Soroush Shemshadi
  * @see <a href="https://shuoros.github.io/jterminal">JTerminal</a>
- * @version 0.1.1
+ * @version 1.0.0
  * @since 0.1.0
  * 
  */
@@ -79,19 +77,27 @@ public class JTerminal {
 		System.out.print(//
 				AnsiUtils.generateCode(//
 						string, List.of(new TextEntity())));
-		System.out.print(AnsiUtils.RESET);
 	}
 
+	/**
+	 * Prints your given string on terminal with list of your
+	 * {@link io.github.shuoros.jterminal.util.TextEntity}s.
+	 * 
+	 * @param string        : A string you want to print on termina
+	 * @param textEnitities : A List of
+	 *                      {@link io.github.shuoros.jterminal.util.TextEntity}
+	 *                      which each of them can contain setting for a range of
+	 *                      your given string.
+	 */
 	public static void print(String string, List<TextEntity> textEnitities) {
 		System.out.print(//
 				AnsiUtils.generateCode(//
 						string, textEnitities));
-		System.out.print(AnsiUtils.RESET);
 	}
 
 	/**
 	 * Prints your given string on terminal with your given foreground color and
-	 * default background color. Eventually your given foreground color will be
+	 * default background color. At the end your given foreground color will be
 	 * reset to the default foreground color.
 	 * 
 	 * @param string     : A string that you want to print on terminal.
@@ -102,12 +108,11 @@ public class JTerminal {
 		System.out.print(//
 				AnsiUtils.generateCode(//
 						string, List.of(new TextEntity(foreground))));
-		System.out.print(AnsiUtils.RESET);
 	}
 
 	/**
 	 * Prints your given string on terminal with your given foreground color and
-	 * background color. Eventually your given foreground and background colors will
+	 * background color. At the end your given foreground and background colors will
 	 * be reset to the default foreground and background colors.
 	 * 
 	 * @param string     : A string that you want to print on terminal.
@@ -122,7 +127,6 @@ public class JTerminal {
 		System.out.print(//
 				AnsiUtils.generateCode(//
 						string, List.of(new TextEntity(foreground, background))));
-		System.out.print(AnsiUtils.RESET);
 	}
 
 	/**
@@ -135,19 +139,27 @@ public class JTerminal {
 		System.out.print(//
 				AnsiUtils.generateCode(//
 						string, List.of(new TextEntity())));
-		System.out.println(AnsiUtils.RESET);
 	}
 
+	/**
+	 * Prints your given string with end line on terminal with list of your
+	 * {@link io.github.shuoros.jterminal.util.TextEntity}s.
+	 * 
+	 * @param string        : A string you want to print on termina
+	 * @param textEnitities : A List of
+	 *                      {@link io.github.shuoros.jterminal.util.TextEntity}
+	 *                      which each of them can contain setting for a range of
+	 *                      your given string.
+	 */
 	public static void println(String string, List<TextEntity> textEnitities) {
 		System.out.print(//
 				AnsiUtils.generateCode(//
 						string, textEnitities));
-		System.out.println(AnsiUtils.RESET);
 	}
 
 	/**
 	 * Prints your given string with end line on terminal with your given foreground
-	 * color and default background color. Eventually your given foreground color
+	 * color and default background color. At the end your given foreground color
 	 * will be reset to the default foreground color.
 	 * 
 	 * @param string     : A string that you want to print on terminal.
@@ -158,12 +170,11 @@ public class JTerminal {
 		System.out.print(//
 				AnsiUtils.generateCode(//
 						string, List.of(new TextEntity(foreground))));
-		System.out.println(AnsiUtils.RESET);
 	}
 
 	/**
 	 * Prints your given string with end line on terminal with your given foreground
-	 * color and background color. Eventually your given foreground and background
+	 * color and background color. At the end your given foreground and background
 	 * colors will be reset to the default foreground and background colors.
 	 * 
 	 * @param string     : A string that you want to print on terminal.
@@ -178,13 +189,10 @@ public class JTerminal {
 		System.out.print(//
 				AnsiUtils.generateCode(//
 						string, List.of(new TextEntity(foreground, background))));
-		System.out.println(AnsiUtils.RESET);
 	}
 
 	/**
-	 * Clear the screen. If {@code OS} was windows then the {@code cls} command will
-	 * be execute and else {@code "\033\143"} will be printed in terminal to clear
-	 * the screen.
+	 * Clear the terminal.
 	 */
 	public static void clear() {
 		System.out.print("\033\143");
@@ -193,7 +201,7 @@ public class JTerminal {
 	/**
 	 * Call the {@code clear()} after sleep for {@code sleep} milliseconds.
 	 * 
-	 * @param sleep Sleep time in milliseconds.
+	 * @param sleep : Sleep time in milliseconds.
 	 */
 	public static void clear(long sleep) {
 		try {
@@ -204,12 +212,20 @@ public class JTerminal {
 		clear();
 	}
 
+	/**
+	 * Deletes the last line befour cursor.
+	 */
 	public static void delete() {
 		int line = 1;
 		System.out.print(String.format("\033[%dA", line)); // Move up
 		System.out.print("\033[2K"); // Erase line content
 	}
 
+	/**
+	 * Delete last givven {@code line}s befour cursor.
+	 * 
+	 * @param line : Lines number you want to delete.
+	 */
 	public static void delete(int line) {
 		System.out.print(String.format("\033[%dA", line)); // Move up
 		System.out.print("\033[2K"); // Erase line content

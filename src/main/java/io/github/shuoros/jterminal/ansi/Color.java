@@ -11,7 +11,7 @@ import io.github.shuoros.jterminal.exception.IncorrectXTermException;
  * @see <a href=
  *      "https://stackoverflow.com/questions/4842424/list-of-ansi-color-escape-sequences/33206814#33206814">StackOverflow,
  *      for a list of codes with examples</a>
- * @version 0.2.1
+ * @version 1.0.0
  * @since 0.1.0
  *
  */
@@ -1052,6 +1052,14 @@ public enum Color {
 		this.code = code;
 	}
 
+	/**
+	 * Creates a color based on your givven XTerm code.
+	 * 
+	 * @param code : The Xterm code of the color that you want.
+	 * @return The color reperesented by code you gave. If you enter an out range
+	 *         code it throws an
+	 *         {@link io.github.shuoros.jterminal.exception.IncorrectXTermException}.
+	 */
 	public static Color xTerm(int code) {
 		if (code > 255 || code < 0) {
 			throw new IncorrectXTermException("Your code : " + code);

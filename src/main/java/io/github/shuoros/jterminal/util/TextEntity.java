@@ -2,6 +2,15 @@ package io.github.shuoros.jterminal.util;
 
 import io.github.shuoros.jterminal.ansi.Color;
 
+/**
+ * Model of entity for texts. Contains begin and and for a given text and its
+ * foreground and background colors.
+ * 
+ * @author Soroush Shemshadi
+ * @version 1.0.0
+ * @since 1.0.0
+ *
+ */
 public class TextEntity {
 
 	private int begin;

@@ -13,7 +13,7 @@ import io.github.shuoros.jterminal.exception.EntitiesRangeOverlapException;
  * and {@link io.github.shuoros.jterminal.ansi.Attribute}s from user.
  * 
  * @author Soroush Shemshadi
- * @version 0.1.0
+ * @version 1.0.0
  * @since 0.1.0
  *
  */
@@ -80,6 +80,15 @@ public class AnsiUtils {
 		return builder.toString().replaceAll(SEPARATOR + POSTFIX, POSTFIX);
 	}
 
+	/**
+	 * It detects overlap in entities begin and end range. If it found an overlap
+	 * will throws an
+	 * {@link io.github.shuoros.jterminal.exception.EntitiesRangeOverlapException}
+	 * 
+	 * @param textEnitities : List of all entities.
+	 * @param textEntity    : An entity that wanted to check for having overlap with
+	 *                      others.
+	 */
 	private static void detectOverlap(List<TextEntity> textEnitities, TextEntity textEntity) {
 		for (TextEntity entity : textEnitities) {
 			if (entity.equals(textEntity)) {

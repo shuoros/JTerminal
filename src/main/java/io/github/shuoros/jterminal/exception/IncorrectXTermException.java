@@ -1,6 +1,7 @@
 package io.github.shuoros.jterminal.exception;
 
 /**
+ * Exception class for incorrect XTerm code.
  * 
  * @author Soroush Shemshadi
  * @version 0.2.0
