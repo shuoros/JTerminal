@@ -4,16 +4,16 @@
  <p align="center">Is an easy to use library for printing custom outouts on terminal!</p>
 </p>
   <p align="center">
+    <a href="https://github.com/shuoros/JTerminal/actions">
+      <img src="https://img.shields.io/github/workflow/status/shuoros/JTerminal/Test?label=Test&style=for-the-badge" />
+    </a>
     <a href="https://mvnrepository.com/artifact/io.github.shuoros/JTerminal">
       <img src="https://img.shields.io/maven-central/v/io.github.shuoros/JTerminal?style=for-the-badge" />
-    </a>
-    <a href="#">
-      <img src="https://img.shields.io/tokei/lines/github/shuoros/jterminal?style=for-the-badge" />
     </a>
     <a href="https://www.codefactor.io/repository/github/shuoros/jterminal">
       <img alt="code factor" src="https://img.shields.io/codefactor/grade/github/shuoros/jterminal/main?style=for-the-badge" />
     </a>
-    <a href="https://github.com/anuraghazra/github-readme-stats/issues">
+    <a href="#">
       <img alt="Contributors" src="https://img.shields.io/github/contributors/shuoros/jterminal?style=for-the-badge&color=blueviolet" />
     </a>
     <a href="https://github.com/shuoros/JTerminal/blob/main/LICENSE">
