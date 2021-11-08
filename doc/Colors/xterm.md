@@ -1,1 +1,0 @@
-# Xterm Colors

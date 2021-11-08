@@ -21,13 +21,21 @@ public enum Attribute {
 	 */
 	CLEAR("0"),
 	/**
-	 * {@code 38;55 Set foreground color}
+	 * {@code 38;5; Set foreground color}
 	 */
 	FOREGROUND("38;5;"),
 	/**
+	 * {@code 38;2; Set foreground color in RGB}
+	 */
+	FOREGROUND_RGB("38;2;"),
+	/**
 	 * {@code 48;5; Set background color}
 	 */
-	BACKGROUND("48;5;"); // TEXT BACKGROUND
+	BACKGROUND("48;5;"),
+	/**
+	 * {@code 48;2; Set background color in RGB}
+	 */
+	BACKGROUND_RGB("48;2;");
 
 	private String code;
 

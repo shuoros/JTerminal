@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"io.github.shuoros.jterminal"},{"l":"io.github.shuoros.jterminal.ansi"},{"l":"io.github.shuoros.jterminal.util"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"io.github.shuoros.jterminal"},{"l":"io.github.shuoros.jterminal.ansi"},{"l":"io.github.shuoros.jterminal.exception"},{"l":"io.github.shuoros.jterminal.util"}]
