@@ -37,6 +37,10 @@ public class TextEntity {
 		this(Integer.MIN_VALUE, Integer.MAX_VALUE, foreground, Color.DEFAULT);
 	}
 
+	public TextEntity(int begin, int end) {
+		this(begin, end, Color.DEFAULT, Color.DEFAULT);
+	}
+
 	public TextEntity() {
 		this(Integer.MIN_VALUE, Integer.MAX_VALUE, Color.DEFAULT, Color.DEFAULT);
 	}

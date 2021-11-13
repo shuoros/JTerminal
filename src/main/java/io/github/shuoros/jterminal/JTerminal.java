@@ -11,7 +11,7 @@ import io.github.shuoros.jterminal.util.TextEntity;
  * 
  * @author Soroush Shemshadi
  * @see <a href="https://shuoros.github.io/jterminal">JTerminal</a>
- * @version 1.0.0
+ * @version 1.0.2
  * @since 0.1.0
  * 
  */
@@ -136,7 +136,7 @@ public class JTerminal {
 	 * @param string : A string you want to print on terminal.
 	 */
 	public static void println(String string) {
-		System.out.print(//
+		System.out.println(//
 				AnsiUtils.generateCode(//
 						string, List.of(new TextEntity())));
 	}
@@ -152,7 +152,7 @@ public class JTerminal {
 	 *                      your given string.
 	 */
 	public static void println(String string, List<TextEntity> textEnitities) {
-		System.out.print(//
+		System.out.println(//
 				AnsiUtils.generateCode(//
 						string, textEnitities));
 	}
@@ -167,7 +167,7 @@ public class JTerminal {
 	 *                   want print your string whit it on terminal.
 	 */
 	public static void println(String string, Color foreground) {
-		System.out.print(//
+		System.out.println(//
 				AnsiUtils.generateCode(//
 						string, List.of(new TextEntity(foreground))));
 	}
@@ -186,7 +186,7 @@ public class JTerminal {
 	 *                   terminal.
 	 */
 	public static void println(String string, Color foreground, Color background) {
-		System.out.print(//
+		System.out.println(//
 				AnsiUtils.generateCode(//
 						string, List.of(new TextEntity(foreground, background))));
 	}
@@ -216,19 +216,20 @@ public class JTerminal {
 	 * Deletes the last line befour cursor.
 	 */
 	public static void delete() {
-		int line = 1;
-		System.out.print(String.format("\033[%dA", line)); // Move up
+		System.out.print(String.format("\033[%dA", 1)); // Move up
 		System.out.print("\033[2K"); // Erase line content
 	}
 
 	/**
 	 * Delete last given {@code line}s befour cursor.
 	 * 
-	 * @param line : Lines number you want to delete.
+	 * @param lines : Lines number you want to delete.
 	 */
-	public static void delete(int line) {
-		System.out.print(String.format("\033[%dA", line)); // Move up
-		System.out.print("\033[2K"); // Erase line content
+	public static void delete(int lines) {
+		for (int i = 0; i < lines; i++) {
+			System.out.print(String.format("\033[%dA", 1)); // Move up
+			System.out.print("\033[2K"); // Erase line content
+		}
 	}
 
 }

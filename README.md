@@ -32,11 +32,12 @@
 	If you like this project, help me by giving me a star =))<3
   </p>
 
-## What is in V1.0.0
+## What is in V1.0.2
 - Print and println with foreground and background color.
 - Support 8-bit 0-255 XTerm colors.
 - Get colors by name and theire XTerm code.
 - TextEntity class for assign different styles to a single string.
+- Pass your TextEntity list with no order and full coverage (v1.0.2)
 - clear the terminal.
 - delete lines.
 
