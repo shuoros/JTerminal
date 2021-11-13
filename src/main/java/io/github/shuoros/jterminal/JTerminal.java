@@ -11,7 +11,7 @@ import io.github.shuoros.jterminal.util.TextEntity;
  * 
  * @author Soroush Shemshadi
  * @see <a href="https://shuoros.github.io/jterminal">JTerminal</a>
- * @version 1.0.0
+ * @version 1.0.2
  * @since 0.1.0
  * 
  */
