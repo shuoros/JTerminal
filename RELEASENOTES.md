@@ -2,6 +2,11 @@
 
 ## next release
 
+## 1.0.2 (2021-11-13)
+### New Features
+- Pass your TextEntity list with no order and full coverage.
+- Fix delete lines bug.
+
 ## 1.0.0 (2021-11-08)
 ### New Features
 - Implement clear feature to clean whole terminal.
