@@ -130,7 +130,7 @@ You can use **JTerminal** with any project management tool:
 <dependency>
     <groupId>io.github.shuoros</groupId>
     <artifactId>JTerminal</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
@@ -138,34 +138,34 @@ You can use **JTerminal** with any project management tool:
 
 ```gradle
 // https://mvnrepository.com/artifact/io.github.shuoros/JTerminal
-implementation group: 'io.github.shuoros', name: 'JTerminal', version: '1.0.0'
+implementation group: 'io.github.shuoros', name: 'JTerminal', version: '1.0.2'
 ```
 Or
 
 ```gradle
 // https://mvnrepository.com/artifact/io.github.shuoros/JTerminal
-implementation 'io.github.shuoros:JTerminal:1.0.0'
+implementation 'io.github.shuoros:JTerminal:1.0.2'
 ```
 
 And in **Kotlin**
 
 ```gradle
 // https://mvnrepository.com/artifact/io.github.shuoros/JTerminal
-implementation("io.github.shuoros:JTerminal:1.0.0")
+implementation("io.github.shuoros:JTerminal:1.0.2")
 ```
 
 ### SBT
 
 ```sbt
 // https://mvnrepository.com/artifact/io.github.shuoros/JTerminal
-libraryDependencies += "io.github.shuoros" % "JTerminal" % "1.0.0"
+libraryDependencies += "io.github.shuoros" % "JTerminal" % "1.0.2"
 ```
 
 ### Ivy
 
 ```xml
 <!-- https://mvnrepository.com/artifact/io.github.shuoros/JTerminal -->
-<dependency org="io.github.shuoros" name="JTerminal" rev="1.0.0"/>
+<dependency org="io.github.shuoros" name="JTerminal" rev="1.0.2"/>
 ```
 
 ### Grape
@@ -173,7 +173,7 @@ libraryDependencies += "io.github.shuoros" % "JTerminal" % "1.0.0"
 ```java
 // https://mvnrepository.com/artifact/io.github.shuoros/JTerminal
 @Grapes(
-    @Grab(group='io.github.shuoros', module='JTerminal', version='1.0.0')
+    @Grab(group='io.github.shuoros', module='JTerminal', version='1.0.2')
 )
 ```
 
@@ -181,7 +181,7 @@ libraryDependencies += "io.github.shuoros" % "JTerminal" % "1.0.0"
 
 ```clj
 ;; https://mvnrepository.com/artifact/io.github.shuoros/JTerminal
-[io.github.shuoros/JTerminal "1.0.0"]
+[io.github.shuoros/JTerminal "1.0.2"]
 ```
 
 ## Authors
