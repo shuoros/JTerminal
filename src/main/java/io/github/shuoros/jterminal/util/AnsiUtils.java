@@ -16,7 +16,7 @@ import io.github.shuoros.jterminal.exception.EntitiesRangeOverlapException;
  * and {@link io.github.shuoros.jterminal.ansi.Attribute}s from user.
  * 
  * @author Soroush Shemshadi
- * @version 1.0.0
+ * @version 1.0.1
  * @since 0.1.0
  *
  */
@@ -91,12 +91,24 @@ public class AnsiUtils {
 		return builder.toString().replaceAll(SEPARATOR + POSTFIX, POSTFIX);
 	}
 
+	/**
+	 * Creates new instance of given list of entities because of List.of() mtheod
+	 * returns an unmodifiable List and for next steps list cannot be sort.
+	 * 
+	 * @param entities : Given list of entities.
+	 * @return New instace of given entities.
+	 */
 	private static List<TextEntity> createNewInstance(List<TextEntity> entities) {
 		List<TextEntity> newList = new ArrayList<>();
 		newList.addAll(entities);
 		return newList;
 	}
 
+	/**
+	 * Sort the entities by theire begin range.
+	 * 
+	 * @param entities : Sorted list of entitites by range in high descend.
+	 */
 	private static void sortTextEntitiesWithRange(List<TextEntity> entities) {
 		Collections.sort(entities, new Comparator<TextEntity>() {
 
@@ -134,6 +146,17 @@ public class AnsiUtils {
 		}
 	}
 
+	/**
+	 * Fix the entity coverage on text. If given text had length of 10 and two
+	 * entities assigned to it with ranges [2, 5] and [7, 10], This methos covers
+	 * the gap between ranges with default foreground and background colors and
+	 * returns a List of entities like [0, 2], [2, 5], [5, 7], [7, 10].
+	 * 
+	 * @param text      : Given text.
+	 * @param enitities : List of entities with gaps in range.
+	 * @return A List that covers all of the given text and fill the given entity
+	 *         list's gaps.
+	 */
 	private static List<TextEntity> fixEntityCoverage(String text, List<TextEntity> enitities) {
 		if (!(enitities.size() == 1 && enitities.get(0).getBegin() == Integer.MIN_VALUE
 				&& enitities.get(0).getEnd() == Integer.MAX_VALUE)) {
